@@ -14,13 +14,18 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 public class MainDashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private Button groups;
     private Button tasks;
     private Button festdetails;
     private Button registrations;
+    private Button raise;
+    private TextView tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,28 +42,35 @@ public class MainDashboard extends AppCompatActivity implements NavigationView.O
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
 
-        groups = findViewById(R.id.button3);
+        groups = findViewById(R.id.buttonGroups);
         groups.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
                 openGroupsPage();
             }
         });
 
-        festdetails = findViewById(R.id.button5);
+        raise = findViewById(R.id.nav_alert);
+        raise.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                openAlertPage();
+            }
+        });
+
+        festdetails = findViewById(R.id.buttonDetails);
         festdetails.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
                 openEventsPage();
             }
         });
 
-        tasks = findViewById(R.id.button8);
+        tasks = findViewById(R.id.buttonmytasks);
         tasks.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
                 openTasksPage();
             }
         });
 
-        registrations = findViewById(R.id.button6);
+        registrations = findViewById(R.id.buttonReg );
         registrations.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
                 openEventsPage2();
@@ -85,12 +97,8 @@ public class MainDashboard extends AppCompatActivity implements NavigationView.O
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+        int id = item.getItemId();
         if (id == R.id.action_settings) {
             return true;
         }
@@ -128,6 +136,11 @@ public class MainDashboard extends AppCompatActivity implements NavigationView.O
 
     public void openGroupsPage(){
         Intent intent = new Intent(this, GroupsPage.class);
+        startActivity(intent);
+    }
+
+    public void openAlertPage(){
+        Intent intent = new Intent(this, AlertPage.class);
         startActivity(intent);
     }
 

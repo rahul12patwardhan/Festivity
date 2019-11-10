@@ -11,9 +11,6 @@
         <item android:id="@+id/nav_notifications"
             android:icon="@drawable/ic_notifications"
             android:title="Notifications"/>
-        <item android:id="@+id/nav_alert"
-            android:icon="@drawable/ic_alert"
-            android:title="Raise an alert"/>
         <item android:id="@+id/nav_changefest"
             android:icon="@drawable/ic_changefest"
             android:title="Change Fest"/>

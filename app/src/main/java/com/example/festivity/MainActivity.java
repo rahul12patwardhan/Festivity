@@ -8,23 +8,35 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.util.Log;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
     private Button button1;
     private Button button2;
     private String val;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference userdb = database.getReference("Users");
+        //myRef.setValue("Hello, World!");
+
+        //myRef.child("users").child(userId).setValue(user);
+
+        final Spinner spinner = (Spinner) findViewById(R.id.spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.Team, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
-        final String text = spinner.getSelectedItem().toString();
+//        final String text = spinner.getSelectedItem().toString();
 
         button2 = findViewById(R.id.button2);
         button2.setOnClickListener(new View.OnClickListener() {
@@ -36,14 +48,18 @@ public class MainActivity extends AppCompatActivity {
         button1 = findViewById(R.id.button);
         button1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-//                if (text.equals("Visitor")) {
-//                    openVisitorDashboard();
-//                } else {
-//
-//                    openMainDashboard();
-//                }
+                final String text = spinner.getSelectedItem().toString();
+//                Log.i("checkooooooooooooo",text);
+                if (text.equals("Visitor")) {
+                    //Log.i("Visitor","Visitor");
 
-                openVisitorDashboard();
+                    openVisitorDashboard();
+                } else {
+
+                    openMainDashboard();
+                }
+
+                //openVisitorDashboard();
             }
         });
     }

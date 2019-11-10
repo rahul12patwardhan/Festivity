@@ -1,61 +1,298 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:id="@+id/stats"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".VisitorDashboard"
-    tools:showIn="@layout/app_bar_visitor_dashboard">
+    android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/button10"
-        android:layout_width="183dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="256dp"
-        android:layout_marginEnd="8dp"
-        android:text="Entry (QR Code)"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6"
+        android:gravity="center"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/button11"
-        android:layout_width="181dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="316dp"
-        android:layout_marginEnd="8dp"
-        android:text="Events"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingTop="50dp">
 
-    <Button
-        android:id="@+id/button12"
-        android:layout_width="183dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="376dp"
-        android:layout_marginEnd="8dp"
-        android:text="Registered Events"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="4"
+                    android:background="@drawable/rectangle_4"
+                    android:orientation="vertical"
+                    android:padding="20dp">
 
-    <Button
-        android:id="@+id/button13"
-        android:layout_width="179dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="436dp"
-        android:layout_marginEnd="8dp"
-        android:text="Map"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</android.support.constraint.ConstraintLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="130dp"
+                            android:layout_height="130dp"
+                            android:background="@drawable/user" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="20dp"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="User Name "
+                                android:textAllCaps="false"
+                                android:textColor="#fff"
+                                android:textSize="40dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Visitor"
+                                android:textAllCaps="false"
+                                android:textColor="#4bc2ff"
+                                android:id="@+id/Teamsub"
+                                android:textSize="24dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="4"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="3"
+                        android:background="#fff"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:background="#00c47f"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="12"
+                                android:textAllCaps="false"
+                                android:textColor="#fff"
+                                android:textSize="33dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Events"
+                                android:textAllCaps="false"
+                                android:textColor="#fff"
+                                android:textSize="24dp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:background="#a500ff"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="4"
+                                android:textAllCaps="false"
+                                android:textColor="#fff"
+                                android:textSize="33dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Registered"
+                                android:textAllCaps="false"
+                                android:textColor="#fff"
+                                android:textSize="24dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_weight="4"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:background="#fff">
+
+        <LinearLayout
+            android:layout_width="411dp"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:background="#fff"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:background="#4dc2ff"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#4dc2ff"
+                    android:text="Enter Event ID"
+                    android:textSize="22dp"
+                    android:id="@+id/buttonGroups"
+                    android:textColor="#fff" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:background="#ff7fe5"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#ff9900"
+                    android:text="View Events"
+                    android:textSize="22dp"
+                    android:id="@+id/buttonReg"
+                    android:textColor="#fff" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="411dp"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:background="#fff"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:background="#4dc2ff"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#ff9900"
+                    android:text="Registered Events"
+                    android:textSize="25dp"
+                    android:id="@+id/buttonDetails"
+                    android:textColor="#fff" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:background="#ff7fe5"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#4dc2ff"
+                    android:text="Map"
+                    android:textSize="25dp"
+                    android:id="@+id/buttonmytasks"
+                    android:textColor="#fff" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>
+
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--app:layout_behavior="@string/appbar_scrolling_view_behavior"-->
+    <!--tools:context=".VisitorDashboard"-->
+    <!--tools:showIn="@layout/app_bar_visitor_dashboard">-->
+
+    <!--<Button-->
+        <!--android:id="@+id/button10"-->
+        <!--android:layout_width="183dp"-->
+        <!--android:layout_height="46dp"-->
+        <!--android:layout_marginStart="8dp"-->
+        <!--android:layout_marginTop="256dp"-->
+        <!--android:layout_marginEnd="8dp"-->
+        <!--android:text="Entry (QR Code)"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintHorizontal_bias="0.498"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--<Button-->
+        <!--android:id="@+id/button11"-->
+        <!--android:layout_width="181dp"-->
+        <!--android:layout_height="45dp"-->
+        <!--android:layout_marginStart="8dp"-->
+        <!--android:layout_marginTop="316dp"-->
+        <!--android:layout_marginEnd="8dp"-->
+        <!--android:text="Events"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintHorizontal_bias="0.501"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--<Button-->
+        <!--android:id="@+id/button12"-->
+        <!--android:layout_width="183dp"-->
+        <!--android:layout_height="46dp"-->
+        <!--android:layout_marginStart="8dp"-->
+        <!--android:layout_marginTop="376dp"-->
+        <!--android:layout_marginEnd="8dp"-->
+        <!--android:text="Registered Events"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintHorizontal_bias="0.494"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--<Button-->
+        <!--android:id="@+id/button13"-->
+        <!--android:layout_width="179dp"-->
+        <!--android:layout_height="47dp"-->
+        <!--android:layout_marginStart="8dp"-->
+        <!--android:layout_marginTop="436dp"-->
+        <!--android:layout_marginEnd="8dp"-->
+        <!--android:text="Map"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent" />-->
+<!--</android.support.constraint.ConstraintLayout>-->
