@@ -60,7 +60,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Core Team"
                                 android:textAllCaps="false"
-                                android:textColor="#4bc2ff"
+                                android:textColor="#87BCD8"
                                 android:id="@+id/Teamsub"
                                 android:textSize="24dp" />
                         </LinearLayout>

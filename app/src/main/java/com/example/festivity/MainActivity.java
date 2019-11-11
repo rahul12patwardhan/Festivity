@@ -12,6 +12,8 @@ import android.widget.Spinner;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
     private Button button1;
@@ -39,7 +41,8 @@ public class MainActivity extends AppCompatActivity {
 
 //      final String text = spinner.getSelectedItem().toString();
 
-
+        Email = findViewById(R.id.editText);
+        Password = findViewById(R.id.editText2);
 
         button2 = findViewById(R.id.button2);
         button2.setOnClickListener(new View.OnClickListener() {
@@ -52,7 +55,11 @@ public class MainActivity extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
 
+                String email = Email.getText().toString();
+                String password = Password.getText().toString();
 
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference userdb = database.getReference().child("Users");
 
                 final String text = spinner.getSelectedItem().toString();
 
