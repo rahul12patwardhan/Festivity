@@ -1,23 +1,25 @@
 package com.example.festivity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
-import android.util.Log;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
     private Button button1;
     private Button button2;
     private String val;
-
+    private FirebaseAuth mAuth;
+    private EditText Email;
+    private EditText Password;
 
 
     @Override
@@ -25,9 +27,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference userdb = database.getReference("Users");
-        //myRef.setValue("Hello, World!");
+//        FirebaseDatabase database = FirebaseDatabase.getInstance();
+//        DatabaseReference userdb = database.getReference("Users");
 
         //myRef.child("users").child(userId).setValue(user);
 
@@ -36,7 +37,9 @@ public class MainActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
-//        final String text = spinner.getSelectedItem().toString();
+//      final String text = spinner.getSelectedItem().toString();
+
+
 
         button2 = findViewById(R.id.button2);
         button2.setOnClickListener(new View.OnClickListener() {
@@ -48,23 +51,23 @@ public class MainActivity extends AppCompatActivity {
         button1 = findViewById(R.id.button);
         button1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                final String text = spinner.getSelectedItem().toString();
-//                Log.i("checkooooooooooooo",text);
-                if (text.equals("Visitor")) {
-                    //Log.i("Visitor","Visitor");
 
+
+
+                final String text = spinner.getSelectedItem().toString();
+
+                if (text.equals("Visitor")) {
                     openVisitorDashboard();
                 } else {
-
                     openMainDashboard();
                 }
 
-                //openVisitorDashboard();
             }
         });
+
+
     }
-    public void onItemSelected(AdapterView<?> parent, View view,
-                               int pos, long id) {
+    public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
         val = parent.getItemAtPosition(pos).toString();
     }
 
