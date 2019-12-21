@@ -15,6 +15,8 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainDashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private Button groups;
@@ -23,6 +25,9 @@ public class MainDashboard extends AppCompatActivity implements NavigationView.O
     private Button registrations;
     private Button raise;
     private TextView tv;
+    private TextView title;
+    private TextView title2;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +38,21 @@ public class MainDashboard extends AppCompatActivity implements NavigationView.O
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+        View headerView = navigationView.getHeaderView(0);
+        TextView navUsername = (TextView) headerView.findViewById(R.id.title2);
+
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+
+        String email = currentUser.getEmail().toString();
+
+        title = findViewById(R.id.title);
+        title.setText(email);
+        navUsername.setText(email);
 
         groups = findViewById(R.id.buttonGroups);
         groups.setOnClickListener(new View.OnClickListener() {
@@ -122,6 +137,7 @@ public class MainDashboard extends AppCompatActivity implements NavigationView.O
             startActivity(intent);
 
         }  else if (id == R.id.nav_send) {
+            FirebaseAuth.getInstance().signOut();
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }
@@ -142,7 +158,7 @@ public class MainDashboard extends AppCompatActivity implements NavigationView.O
     }
 
     public void openEventsPage(){
-        Intent intent = new Intent(this, EventsPage.class);
+        Intent intent = new Intent(this, EventsPageMain.class);
         startActivity(intent);
     }
 

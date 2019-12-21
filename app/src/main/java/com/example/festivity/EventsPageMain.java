@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EventsPage extends AppCompatActivity {
+public class EventsPageMain extends AppCompatActivity {
     private ListView listView;
 
     @Override

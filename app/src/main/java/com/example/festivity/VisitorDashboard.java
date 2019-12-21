@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,9 +15,15 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
-public class VisitorDashboard extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class VisitorDashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+    private FirebaseAuth mAuth;
+    private TextView title3;
+    private TextView title4;
+    private Button userid;
+    private Button VE;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +38,41 @@ public class VisitorDashboard extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+        View headerView = navigationView.getHeaderView(0);
+        TextView navUsername = (TextView) headerView.findViewById(R.id.title4);
+
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+
+        String email = currentUser.getEmail().toString();
+        title3 = findViewById(R.id.title3);
+        title3.setText(email);
+        navUsername.setText(email);
+
+        userid = findViewById(R.id.buttonUserID);
+        userid.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                openUserID();
+            }
+        });
+
+        VE = findViewById(R.id.buttonviewevents);
+        VE.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                openViewEvents();
+            }
+        });
+
+    }
+
+    public void openUserID(){
+        Intent intent = new Intent(this, ViewUserID.class);
+        startActivity(intent);
+    }
+
+    public void openViewEvents(){
+        Intent intent = new Intent(this, EventsPage.class);
+        startActivity(intent);
     }
 
     @Override
@@ -72,6 +116,7 @@ public class VisitorDashboard extends AppCompatActivity
         } else if (id == R.id.nav_helpforum) {
 
         }  else if (id == R.id.nav_send) {
+            FirebaseAuth.getInstance().signOut();
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }
